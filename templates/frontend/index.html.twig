@@ -1,0 +1,36 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="lbl-from">1 {{ default }} equal to</h3>
+        <h1 class="lbl-to">{{ rate }} {{ tosymbol[0] }}</h1>
+        <div class="input-group">
+            <input type="text" class="form-control from-amount" value="1">
+            <select class="custom-select from-symbol">
+                {% for symbol in fromsymbol %}
+                <option value="{{ symbol }}"{% if symbol == default%} selected=""{% endif %}>{{ symbol }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control to-amount" value="{{ rate }}">
+            <select class="custom-select to-symbol">
+                {% for symbol in tosymbol %}
+                <option value="{{ symbol }}">{{ symbol }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('js/exchanger.js') }}"></script>
+	<script type="text/javascript">
+		$(function(){
+            new exchanger({{ rate }});
+		});
+	</script>
+{% endblock %}
