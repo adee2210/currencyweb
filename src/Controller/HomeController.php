@@ -78,7 +78,7 @@ class HomeController extends AbstractController {
         }
     }
 
-    private function getcurrency($symbols){
+    private function getcurrency(){
         if($symbols = $this->loadcurrency()){
             $relsymbol = array();
             if(!empty($symbols))
