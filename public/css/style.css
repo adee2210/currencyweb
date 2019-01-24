@@ -1,0 +1,11 @@
+h3 { 
+	color:#8A8A8A;
+	font-size: 23px; 
+}
+.from-amount, .to-amount {
+	margin-right:20px;
+	text-align: right;
+}
+.from-symbol, .to-symbol {
+	background-color:#F2F3F3;
+}
