@@ -54,10 +54,10 @@ class exchanger {
                 function(response){
                     if(response.rate >= 0){
                         obj.rate = response.rate;
-                        var conv = (1/obj.rate*$('input.to-amount').val()).toFixed(5);
-                        $('.lbl-from').html(conv+' '+$('select.from-symbol option:selected').text()+' equal to');
-                        $('.lbl-to').html($('input.to-amount').val()+' '+symbol);
-                        $('input.from-amount').val(conv);
+                        var conv = (obj.rate*$('input.from-amount').val()).toFixed(5);
+                        $('.lbl-from').html($('input.from-amount').val()+' '+$('select.from-symbol option:selected').text()+' equal to');
+                        $('.lbl-to').html(conv+' '+symbol);
+                        $('input.to-amount').val(conv);
                     }
                 }, 
                 "json"
