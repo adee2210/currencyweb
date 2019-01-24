@@ -15,12 +15,18 @@ currencyweb use php-forex-quotes Library for fetching currency symbol and exchan
 * git >= 2.19
 
 ## Installation
+First, clone the files
 ```
-composer pull https://github.com/adee2210/currencyweb.git
+git clone https://github.com/adee2210/currencyweb.git
 ```
 Or Download ZIP file and extract in any folder on your computer
 
-and then run command
+Next, go inside your web file by
+```
+cd currencyweb
+```
+
+Finally, install require files by running command
 ```
 composer update
 ```
