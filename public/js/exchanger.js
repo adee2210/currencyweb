@@ -28,16 +28,18 @@ class exchanger {
                 '/request',
                 {symbol:symbol},
                 function(response){
-                    if(response.rate >= 0){
-                        obj.rate = response.rate;
-                        var conv = (obj.rate*$('input.from-amount').val()).toFixed(5);
-                        $('input.to-amount').val(conv);
-                    }
                     if(typeof(response.data) == 'object'){
                         $('select.to-symbol').html('');
                         $.each(response.data,function(idx,val){
                             $('select.to-symbol').append('<option>'+val+'</option>');
                         });
+                        if(response.rate >= 0){
+                            obj.rate = response.rate;
+                            var conv = (obj.rate*$('input.from-amount').val()).toFixed(5);
+                            $('.lbl-from').html($('input.from-amount').val()+' '+symbol+' equals');
+                            $('.lbl-to').html(conv+' '+response.data[0]);
+                            $('input.to-amount').val(conv);
+                        }
                     }
                 }, 
                 "json"
@@ -53,6 +55,8 @@ class exchanger {
                     if(response.rate >= 0){
                         obj.rate = response.rate;
                         var conv = (1/obj.rate*$('input.to-amount').val()).toFixed(5);
+                        $('.lbl-from').html(conv+' '+$('select.from-symbol option:selected').text()+' equal to');
+                        $('.lbl-to').html($('input.to-amount').val()+' '+symbol);
                         $('input.from-amount').val(conv);
                     }
                 }, 
