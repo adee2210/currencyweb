@@ -1,6 +1,6 @@
 # Currency Conversion website
 
-currencyweb use php-forex-quotes Library for fetching currency symbol and exchange rate.
+currencyweb use php-forex-quotes Library for fetching currency symbol and exchange rate, as the api has limit request for each key, so we add cache system to reduce request traffic.
 
 # Table of Contents
 
@@ -21,12 +21,12 @@ git clone https://github.com/adee2210/currencyweb.git
 ```
 Or Download ZIP file and extract in any folder on your computer
 
-Next, go inside your web file by
+Next, go inside your website files directory by
 ```
 cd currencyweb
 ```
 
-Finally, install require files by running command
+Finally, install require files by
 ```
 composer update
 ```
@@ -37,7 +37,7 @@ composer update
 ```
 php bin/console server:run
 ```
-and then open your browser and put location to
+Open your browser and natigate to
 
 ```
 http://127.0.0.1:8000
